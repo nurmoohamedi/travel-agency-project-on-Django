@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from .models import Member
+
 
 team_members = ({
   "fname": "Muhamedi",
@@ -16,7 +18,10 @@ def index(request):
 
 
 def contact(request):
-    return render(request, 'blog/contact.html', {'team': team_members})
+
+    members = Member.objects.all()
+
+    return render(request, 'blog/contact.html', {'team': team_members,'members':members})
 
 
 def about(request):

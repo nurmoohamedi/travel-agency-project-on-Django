@@ -11,27 +11,33 @@
     <div class="container text-center">
         <h1 class="display-3">Our Team</h1>
 
-        <div class="row centered d-flex justify-content-center" style="padding: 50px 0;">
-            <div class="card" style="width: 300px;">
+        <div class="row d-grid justify-content-center" style="padding: 50px 0;">
+            <div class="card mr-3" style="width: 300px;">
                 <img src="../../static/blog/img/2.jpg" class="card-img-top" alt="Sample Image">
-
-
+{#                With Dictionary#}
                 <div class="card-body text-center">
-{#                    {% for foo in team_members.items %}#}
-
                     <h5 class="card-title">{{ team.fname }} {{ team.lname }}</h5>
                     <p class="card-text">{{ team.position }}</p>
                     <p class="card-text">Group: {{ team.group }}</p>
                     <p class="card-text">Mail: <a href="#">{{ team.email }}</a></p>
                     <p class="card-text">Phone Number: {{ team.phone }}</p>
                     <a href="#" class="btn btn-primary">View Profile</a>
-
-{#                        {% endfor %}#}
-
                 </div>
-
-
              </div>
+
+{#            With Models  -----#}
+            {% for member in members %}
+            <div class="card mr-3" style="width: 300px;">
+                <img src="../../static/blog/img/2.jpg" class="card-img-top" alt="Sample Image">
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{ member.name }}</h5>
+                    <p class="card-text">{{ member.position }}</p>
+                    <p class="card-text">Mail: <a href="#">{{ member.email }}</a></p>
+                    <p class="card-text">Phone Number: {{ member.number }}</p>
+                    <a href="#" class="btn btn-primary">View Profile</a>
+                </div>
+             </div>
+            {% endfor %}
         </div>
     </div>
 
