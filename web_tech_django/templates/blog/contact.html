@@ -2,7 +2,7 @@
 
 {% block title %}Contacts{% endblock %}
 
-{% block active %}active{% endblock %}
+{#{% block active %}active{% endblock %}#}
 
 {% block content %}
 
@@ -14,13 +14,23 @@
         <div class="row centered d-flex justify-content-center" style="padding: 50px 0;">
             <div class="card" style="width: 300px;">
                 <img src="../../static/blog/img/2.jpg" class="card-img-top" alt="Sample Image">
+
+
                 <div class="card-body text-center">
-                    <h5 class="card-title">{% team_members["fname"] %}</h5>
-                    <p class="card-text">Director/Developer</p>
-                    <p class="card-text">Group: ITSE_1902</p>
-                    <p class="card-text">Mail: <a href="#">nurmoohamedi@gmail.com</a></p>
+{#                    {% for foo in team_members.items %}#}
+
+                    <h5 class="card-title">{{ team.fname }} {{ team.lname }}</h5>
+                    <p class="card-text">{{ team.position }}</p>
+                    <p class="card-text">Group: {{ team.group }}</p>
+                    <p class="card-text">Mail: <a href="#">{{ team.email }}</a></p>
+                    <p class="card-text">Phone Number: {{ team.phone }}</p>
                     <a href="#" class="btn btn-primary">View Profile</a>
+
+{#                        {% endfor %}#}
+
                 </div>
+
+
              </div>
         </div>
     </div>
