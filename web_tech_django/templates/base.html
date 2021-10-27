@@ -1,0 +1,97 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	 <meta name="viewport"
+     content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<title>{% block title %}My Site{% endblock %}</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+          crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+
+</head>
+<body>
+    <div class="category">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 fixed-top">
+          <div class="container">
+            <a href="#" class="navbar-brand header__logo text-primary">tour-de-Qazaqstan</a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navmenu"
+            >
+              <span class="navbar-toggler-icon "></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navmenu">
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                  <a href="{% url 'blog:index' %}" class="nav-link {% block active %}{% endblock %}">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a href="{% url 'blog:contact' %}" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item">
+                  <a href="{% url 'blog:about' %}" class="nav-link">About Us</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+    </div>
+
+	{% block content %}
+	{% endblock %}
+
+	<footer class="footer">
+		<div class="container">
+			<div class="footer__row">
+				<div class="footer__body">
+					<div class="footer__logo">
+						<a href="index.html">tour-de-Qazaqstan</a>
+					</div>
+					<div class="footer__subtitle">Find out what the best destinations in the Qazaqstan.</div>
+					<div class="footer__soc-media">
+						<a href=""><img src="{% static 'blog/img/icons/twitter.png' %}" alt=""></a>
+						<a href=""><img src="{% static 'blog/img/icons/telegram.png' %}" alt=""></a>
+						<a href=""><img src="{% static 'blog/img/icons/instagram.png' %}" alt=""></a>
+						<a href=""><img src="{% static 'blog/img/icons/facebook.png' %}" alt=""></a>
+						<a href=""><img src="{% static 'blog/img/icons/linkedin.png' %}" alt=""></a>
+						<a href=""><img src="{% static 'blog/img/icons/youtube.png' %}" alt=""></a>
+					</div>
+					<div class="footer__rights">Copyright &copy;2021 TourDeQaz. All rights reserved. </div>
+				</div>
+				<div class="footer__links">
+					<div class="link-col">
+					<div class="link__title">Tour-de-Qaz</div>
+						<a href="index.html">Home</a>
+						<a href="#">Tours</a>
+						<a href="visit.html">Visit Qazaqstan</a>
+						<a href="about.html">About Us</a>
+						<a href="#">Book Now</a>
+					</div>
+					<div class="link-col">
+						<div class="link__title">Help</div>
+						<a href="#">Privacy Policy</a>
+						<a href="#">Term & Conditions</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+</body>
+</html>

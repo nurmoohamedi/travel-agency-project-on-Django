@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Contacts{% endblock %}
+
+{% block active %}active{% endblock %}
+
+{% block content %}
+
+    <div class="contact" style="padding: 50px 0;">
+
+    <div class="container text-center">
+        <h1 class="display-3">Our Team</h1>
+
+        <div class="row centered d-flex justify-content-center" style="padding: 50px 0;">
+            <div class="card" style="width: 300px;">
+                <img src="../../static/blog/img/2.jpg" class="card-img-top" alt="Sample Image">
+                <div class="card-body text-center">
+                    <h5 class="card-title">{% team_members["fname"] %}</h5>
+                    <p class="card-text">Director/Developer</p>
+                    <p class="card-text">Group: ITSE_1902</p>
+                    <p class="card-text">Mail: <a href="#">nurmoohamedi@gmail.com</a></p>
+                    <a href="#" class="btn btn-primary">View Profile</a>
+                </div>
+             </div>
+        </div>
+    </div>
+
+    </div>
+
+{% endblock %}
