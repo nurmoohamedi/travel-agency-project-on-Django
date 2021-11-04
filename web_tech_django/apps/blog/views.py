@@ -21,7 +21,7 @@ def contact(request):
 
     members = Member.objects.all()
 
-    return render(request, 'blog/contact.html', {'team': team_members,'members':members})
+    return render(request, 'blog/contact.html', {'team': team_members, 'members': members})
 
 
 def about(request):

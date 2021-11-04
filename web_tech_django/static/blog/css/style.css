@@ -25,6 +25,15 @@ a.header__logo
   background-size: cover;
 }
 
+.nav_date
+{
+	color: darkred;
+	text-decoration: underline;
+}
+.nav_date:hover
+{
+	border-bottom: 3px solid #4d51fa;
+}
 /*Showcase -------------------------*/
 .showcase
 {
@@ -149,6 +158,7 @@ a.header__logo
 
 .footer{
 	padding: 60px 0;
+	background-color: #4d51fa;
 }
 .footer__row
 {

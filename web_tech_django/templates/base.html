@@ -7,7 +7,9 @@
      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-	<title>{% block title %}My Site{% endblock %}</title>
+	<title>
+        {% block title %}My Site{% endblock %}
+    </title>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script
@@ -35,6 +37,10 @@
             >
               <span class="navbar-toggler-icon "></span>
             </button>
+            <hr>
+            <div class="nav_date" style="color: darkred;">It is the {% now "jS \o\f F" %}</div>
+            <div class="nav_date" style="color: #4ac1f7;margin-left: 20px;">Time is - {% now "G : i : s" %}</div>
+
 
             <div class="collapse navbar-collapse justify-content-end" id="navmenu">
               <ul class="navbar-nav ms-auto">
@@ -76,7 +82,8 @@
 						<a href=""><img src="{% static 'blog/img/icons/linkedin.png' %}" alt=""></a>
 						<a href=""><img src="{% static 'blog/img/icons/youtube.png' %}" alt=""></a>
 					</div>
-					<div class="footer__rights">Copyright &copy;2021 TourDeQaz. All rights reserved. </div>
+                    {% now "Y" as current_year %}
+					<div class="footer__rights">Copyright &copy;{{ current_year }} TourDeQaz. All rights reserved. </div>
 				</div>
 				<div class="footer__links">
 					<div class="link-col">

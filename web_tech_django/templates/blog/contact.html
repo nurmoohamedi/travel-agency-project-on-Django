@@ -14,7 +14,8 @@
         <div class="row d-grid justify-content-center" style="padding: 50px 0;">
             <div class="card mr-3" style="width: 300px;">
                 <img src="../../static/blog/img/2.jpg" class="card-img-top" alt="Sample Image">
-{#                With Dictionary#}
+
+{#                With Dictionary ----------#}
                 <div class="card-body text-center">
                     <h5 class="card-title">{{ team.fname }} {{ team.lname }}</h5>
                     <p class="card-text">{{ team.position }}</p>
@@ -25,15 +26,21 @@
                 </div>
              </div>
 
-{#            With Models  -----#}
+{#            With Models  ---------------#}
             {% for member in members %}
             <div class="card mr-3" style="width: 300px;">
-                <img src="../../static/blog/img/2.jpg" class="card-img-top" alt="Sample Image">
+                <img src="../../static/blog/img/mine.jpg" class="card-img-top" alt="Sample Image">
                 <div class="card-body text-center">
                     <h5 class="card-title">{{ member.name }}</h5>
                     <p class="card-text">{{ member.position }}</p>
-                    <p class="card-text">Mail: <a href="#">{{ member.email }}</a></p>
-                    <p class="card-text">Phone Number: {{ member.number }}</p>
+                    <p class="card-text">Mail: <a href="#">{{ member.email|center:"5" }}</a></p>
+                    <p class="card-text">
+                        {% if member.number|length == 12 %}
+                            Phone Number: {{ member.number }}
+                        {% else %}
+                            Phone Number is doesn't exist!
+                        {% endif %}
+                    </p>
                     <a href="#" class="btn btn-primary">View Profile</a>
                 </div>
              </div>
