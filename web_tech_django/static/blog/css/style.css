@@ -14,6 +14,7 @@ body{
 a.header__logo
 {
 	font-family: "Josefin Sans";
+	font-size: 14px;
 }
 .navbar
 {
