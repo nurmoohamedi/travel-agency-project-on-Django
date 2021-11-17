@@ -22,9 +22,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
-    {% block link %}
+{#    {% block link %}#}
         <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
-    {% endblock %}
+    <link rel="stylesheet" href="{% static 'blog/css/boot_style.css' %}">
+{#    {% endblock %}#}
 </head>
 <body>
     <div class="category">
@@ -53,6 +54,12 @@
                   <a href="{% url 'blog:contact' %}" class="nav-link">Contact</a>
                 </li>
                 <li class="nav-item">
+                  <a href="{% url 'blog:tours' %}" class="nav-link">Tours</a>
+                </li>
+                <li class="nav-item">
+                  <a href="{% url 'blog:services' %}" class="nav-link">Services</a>
+                </li>
+                <li class="nav-item">
                   <a href="{% url 'blog:about' %}" class="nav-link">About Us</a>
                 </li>
                 <li class="nav-item">
@@ -73,7 +80,7 @@
 			<div class="footer__row">
 				<div class="footer__body">
 					<div class="footer__logo">
-						<a href="index.html">tour-de-Qazaqstan</a>
+						<a href="{% url 'blog:index' %}">tour-de-Qazaqstan</a>
 					</div>
 					<div class="footer__subtitle">Find out what the best destinations in the Qazaqstan.</div>
 					<div class="footer__soc-media">
