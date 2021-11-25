@@ -29,26 +29,6 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit;}
 
 
 /*Global*/
-body{
-	font-family: 'Montserrat', sans-serif;
-	font-size: 16px;
-	transition: 0.4s ease;
-
-}
-.container
-{
-	width: 80%;
-	padding: 0 auto;
-	overflow: hidden;
-}
-.text
-{
-	font-size: 14px;
-	line-height: 30px;
-}
-
-
-/*Header  ---  Top Navigation*/
 
 
 .header__logo{

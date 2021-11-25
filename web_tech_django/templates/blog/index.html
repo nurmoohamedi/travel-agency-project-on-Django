@@ -15,26 +15,13 @@
 						<div class="enjoy__search">
 							<form action="#" method="get">
 								<select name="places" id="search__places">
-									<option value="">Destinations</option>
-									<option value="">Alakol</option>
-									<option value="">Burabai</option>
-									<option value="">Kolsai</option>
-									<option value="">Sharyn</option>
-									<option value="">Ustirt</option>
-									<option value="">Turgen</option>
+                                    {% for tour in tours %}
+									<option value="">{{ tour.name }}</option>
+                                    {% endfor %}
 								</select>
-								<select name="travelers" id="search__travelers">
-									<option value="" >Travellers</option>
-									<option value="">1</option>
-									<option value="">2</option>
-									<option value="">3</option>
-									<option value="">4</option>
-									<option value="">5</option>
-								</select>
-								<select name="date" id="search__date">
-									<option value="" >Date</option>
-									<option>14</option>
-								</select>
+
+                                <input type="number" name="travelers" id="search__travelers" value="travellers">
+                                <input type="date" id="search__date" name="date">
 
 								<button class="search__btn" type="submit">
 									<img src="{% static 'blog/img/icons/search3.png' %}" alt="">

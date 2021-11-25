@@ -21,17 +21,25 @@
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-
-{#    {% block link %}#}
-        <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'blog/css/boot_style.css' %}">
-{#    {% endblock %}#}
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+    <style>
+        .content
+        {
+            margin-top: 60px;
+        }
+        .logo
+        {
+            font-family: "Josefin Sans";
+            font-size: 30px;
+            color: #4d51fa;
+        }
+    </style>
 </head>
 <body>
     <div class="category">
         <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 fixed-top">
           <div class="container">
-            <a href="#" class="navbar-brand header__logo text-primary">tour-de-Qazaqstan</a>
+            <a href="{% url 'blog:index' %}" class="logo navbar-brand ">tour-de-Qazaqstan</a>
             <button
               class="navbar-toggler"
               type="button"
@@ -40,18 +48,15 @@
             >
               <span class="navbar-toggler-icon "></span>
             </button>
-            <hr>
-            <div class="nav_date" style="color: darkred;">It is the {% now "jS \o\f F" %}</div>
-            <div class="nav_date" style="color: #4ac1f7;margin-left: 20px;">Time is - {% now "G : i : s" %}</div>
+{#            <hr>#}
+{#            <div class="nav_date" style="color: darkred;">It is the {% now "jS \o\f F" %}</div>#}
+{#            <div class="nav_date" style="color: #4ac1f7;margin-left: 20px;">Time is - {% now "G : i : s" %}</div>#}
 
 
             <div class="collapse navbar-collapse justify-content-end" id="navmenu">
               <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
                   <a href="{% url 'blog:index' %}" class="nav-link {% block active %}{% endblock %}">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a href="{% url 'blog:contact' %}" class="nav-link">Contact</a>
                 </li>
                 <li class="nav-item">
                   <a href="{% url 'blog:tours' %}" class="nav-link">Tours</a>
@@ -71,9 +76,11 @@
         </nav>
     </div>
 
-	{% block content %}
+	<div class="content">
+        {% block content %}
 
-	{% endblock %}
+	    {% endblock %}
+    </div>
 
 	<footer class="footer">
 		<div class="container">
@@ -102,11 +109,13 @@
 						<a href="visit.html">Visit Qazaqstan</a>
 						<a href="about.html">About Us</a>
 						<a href="#">Book Now</a>
+                        <a href="{% url 'blog:add_tour' %}">Add Tour</a>
 					</div>
 					<div class="link-col">
 						<div class="link__title">Help</div>
 						<a href="#">Privacy Policy</a>
 						<a href="#">Term & Conditions</a>
+                        <a href="{% url 'blog:contact' %}">Contacts</a>
 					</div>
 				</div>
 			</div>

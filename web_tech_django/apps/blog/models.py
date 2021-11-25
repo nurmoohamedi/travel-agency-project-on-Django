@@ -10,3 +10,16 @@ class Member(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Tour(models.Model):
+    id = models.IntegerField('id',primary_key=True)
+    name = models.CharField('tour_name', max_length=60)
+    description = models.TextField('tour_name')
+    started = models.DateTimeField('started date')
+    duration = models.IntegerField('tour_duration')
+    price = models.IntegerField('tour price')
+    image = models.FileField(upload_to='tours/')
+
+    def __str__(self):
+        return self.name
