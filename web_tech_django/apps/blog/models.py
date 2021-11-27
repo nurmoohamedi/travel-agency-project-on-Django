@@ -13,7 +13,7 @@ class Member(models.Model):
 
 
 class Tour(models.Model):
-    id = models.IntegerField('id',primary_key=True)
+    id = models.IntegerField('id', primary_key=True)
     name = models.CharField('tour_name', max_length=60)
     description = models.TextField('tour_name')
     started = models.DateTimeField('started date')

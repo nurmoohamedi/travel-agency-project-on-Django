@@ -30,11 +30,13 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit;}
 
 body{
 	background-color: #fff;
-	padding: 20px 0;
+	/*padding: 20px 0;*/
 
 	font-family: 'Montserrat', sans-serif;
 	font-size: 16px;
-
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
 }
 input, textarea
 {
@@ -66,11 +68,14 @@ input, textarea
 /*Showcase -------------------------*/
 .showcase
 {
-	height: 500px;
+	height: 700px;
 
 	background-image: url(../img/showcase.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
+	-webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
 }
 .showcase__text
 {
@@ -124,7 +129,7 @@ input, textarea
 	border-left: 2px solid #4d51fa;
 	border-bottom: 2px solid #4d51fa;
 
-  transition: width 0.4s ease-in-out;
+   transition: width 0.4s ease-in-out;
 
 }
 .item__form input:focus
@@ -149,6 +154,7 @@ input, textarea
 	color: #fff;
 	width: 100%;
 
+	transition: width 0.4s ease-in-out;
 }
 .item__form input[type=submit]:hover
 {
@@ -647,6 +653,22 @@ input, textarea
 	{
 		padding: 0 0 30px 0;
 	}
+
+    .helptext{
+    	font-size: 14px;
+    	color: #bbb;
+
+    	margin: 20px 0;
+    	display: block;
+    }
+
+    .errorlist ul{
+    	font-size: 14px;
+    	color: red;
+
+    	margin: 10px 0;
+    	display: block;
+    }
 
 }
 
