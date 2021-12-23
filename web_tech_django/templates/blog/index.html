@@ -5,37 +5,49 @@
 
 {% block content %}
 
-     <div class="enjoy">
+    <div class="enjoy">
 				<div class="enjoy__row">
 					<div class="enjoy__body">
 						<div class="enjoy__title">Let's enjoy your <br> vacations</div>
 						<div class="enjoy__text">There are many variations of passages. Find out what the best destinations in the world are as awarded by millions of real.</div>
-						<div class="enjoy__search">
-							<form action="#" method="get">
-								<select name="places" id="search__places">
-                                    {% for tour in tours %}
-									<option value="">{{ tour.name }}</option>
-                                    {% endfor %}
-								</select>
-
-                                <input type="number" name="travelers" id="search__travelers" value="travellers">
-                                <input type="date" id="search__date" name="date">
-
-								<button class="search__btn" type="submit">
-									<img src="{% static 'blog/img/icons/search3.png' %}" alt="">
-								</button>
-							</form>
-						</div>
 					</div>
-					<div class="enjoy__image">
-						<img src="{% static 'blog/img/enjoy.jpg' %}" alt="">
+					<div class="enjoy__search">
+						<form action="{% url 'blog:search_tours' %}" method="post">
+                            {% csrf_token %}
+							To
+							<select name="tourName" id="search__places">
+                                <option selected value="none">Select name</option>
+                                {% for tour in tours %}
+                                    <option  value="{{ tour.name }}">{{ tour.name }}</option>
+                                {% endfor %}
+							</select>     
+
+							Travellers
+							<input type="number" name="tourTravellers" id="search__travelers" value="1">
+
+							 Departure
+                            <input type="date" id="search__date" name="tourDate" value="{{ todaysDate|date:"Y-m-d" }}">
+                     <!-- <div>
+                     	<label for="round">
+                     	<input id="round" type="radio" value="">Round
+                     </label>
+                     
+                     <label for="oneway">
+                     	<input id="oneway" type="radio" value="">Oneway
+                     </label>
+                     </div> -->
+
+							<button class="btn__rev" type="submit">
+								Submit
+							<!-- <img src="{% static 'blog/img/icons/search3.png' %}" alt=""> -->
+							</button>
+
+						</form>
 					</div>
 				</div>
 		</div>
 
-
     <div class="container">
-
 
 		<section class="services">
 			<div class="container">
@@ -115,21 +127,21 @@
 				</div>
 				<div class="row centered">
 					<div class="col-md-4 packages__column">
-						<img src="{% static 'blog/img/enjoy.jpg' %}" alt="" class="img-fluid">
+						<img src="{% static 'blog/img/tours/borovoe-1.jpg' %}" alt="" class="img-fluid">
 						<div class="col__body">
 							<div class="col__name">Burabai</div>
 							<div class="col__place">South Qazaqstan</div>
 						</div>
 					</div>
 					<div class="col-md-4 packages__column" >
-						<img src="{% static 'blog/img/enjoy.jpg' %}" alt="" class="img-fluid">
+						<img src="{% static 'blog/img/tours/altyn-emel_4.jpg' %}" alt="" class="img-fluid">
 						<div class="col__body">
 							<div class="col__name">Ustirt</div>
 							<div class="col__place">Mangistau Oblysy</div>
 						</div>
 					</div>
 					<div class="col-md-4 packages__column">
-						<img src="{% static 'blog/img/enjoy.jpg' %}" alt="" class="img-fluid">
+						<img src="{% static 'blog/img/tours/ornitology_5.jpg' %}" alt="" class="img-fluid">
 						<div class="col__body">
 							<div class="col__name">Alakol</div>
 							<div class="col__place">Almaty Oblysy</div>

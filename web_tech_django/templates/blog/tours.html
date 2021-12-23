@@ -4,9 +4,70 @@
 
 {% block content %}
 
+    <div class="showcase">
+		<div class="showcase__block">
+			<div class="showcase__text">
+				Tours
+			</div>
+		</div>
+	</div>
 
+    <div class="container">
 
-    <div class="slider">
+    {% if searched_tours %}
+
+        <div class="tours">
+			<div class="container">
+				<div class="tours__title title text-center">Tours that you needed!</div>
+				<div class="tours__row">
+                 {% for tour in searched_tours %}
+
+					<div class="tours__column">
+						<div class="tours__image">
+							<img src="{% static "uploads/" %}{{ tour.image }}" alt="">
+						</div>
+						<div class="tours__body">
+							<div class="tours__time">{{ tour.duration }} Days</div>
+							<div class="tours__title">{{ tour.name }}</div>
+							<div class="tours__text">{{ tour.description }}</div>
+							<a href="{% url 'blog:detail_view' tour.id %}" class="tours__btn btn">View Tour</a>
+						</div>
+					</div>
+
+                 {% endfor %}
+				</div>
+			</div>
+       </div>
+
+    {% else %}
+        <div class="alert alert-warning text-center mt-4">No such tours available!</div>
+       <div class="tours">
+			<div class="container">
+                <div class="tours__title display-6 title text-center">Other</div>
+				<div class="tours__title display-6 mb-5 title text-center">Our Best Tours</div>
+				<div class="tours__row">
+                 {% for tour in tours %}
+
+					<div class="tours__column">
+						<div class="tours__image">
+							<img src="{% static "uploads/" %}{{ tour.image }}" alt="">
+						</div>
+						<div class="tours__body">
+							<div class="tours__time">{{ tour.duration }} Days</div>
+							<div class="tours__title">{{ tour.name }}</div>
+							<div class="tours__text">{{ tour.description }}</div>
+							<a href="{% url 'blog:detail_view' tour.id %}" class="tours__btn btn">View Tour</a>
+						</div>
+					</div>
+
+                 {% endfor %}
+				</div>
+			</div>
+       </div>
+
+    {% endif %}
+
+           <div class="slider">
 
 			<h1 class="h1 text-center title">Our Best Places</h1>
 
@@ -42,28 +103,9 @@
 			</div>
 		</div>
 
-    <div class="tours">
-			<div class="container">
-				<div class="tours__title title text-center">Our Best Tours</div>
-				<div class="tours__row">
-                 {% for tour in tours %}
+    </div>
 
-					<div class="tours__column">
-						<div class="tours__image">
-							<img src="{% static "uploads/" %}{{ tour.image }}" alt="">
-						</div>
-						<div class="tours__body">
-							<div class="tours__time">{{ tour.duration }} Days</div>
-							<div class="tours__title">{{ tour.name }}</div>
-							<div class="tours__text">{{ tour.description }}</div>
-							<a href="{% url 'blog:tour_detail' tour.id %}" class="tours__btn btn">View Tour</a>
-						</div>
-					</div>
 
-                 {% endfor %}
-				</div>
-			</div>
-		</div>
 
 
 

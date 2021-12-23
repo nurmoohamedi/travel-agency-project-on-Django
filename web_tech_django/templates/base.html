@@ -11,38 +11,43 @@
         {% block title %}My Site{% endblock %}
     </title>
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script
-          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-          integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-          crossorigin="anonymous"></script>
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="{% static 'blog/css/extra/bootstrap.min.css' %}">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link
+   href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+   rel="stylesheet"
+   integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+   crossorigin="anonymous"
+   />
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script> -->
 
-    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
 
-    <style>
-        body{
-            -webkit-transition: 0.5s;
-            -o-transition: 0.5s;
-            transition: 0.5s;
-        }
-        .content {
-            margin-top: 50px;
-        }
-        .logo
-        {
-            font-family: "Josefin Sans";
-            font-size: 30px;
-            color: #4d51fa;
-        }
-    </style>
+<!-- <link rel="stylesheet" href="{% static 'blog/css/extra/mdb.min.css' %}">
+<link rel="stylesheet" href="{% static 'blog/css/extra/style.min.css' %}"> -->
+
+<link rel="stylesheet" href="{% static 'blog/css/index.css' %}">
+
+
 </head>
+
 <body>
-    <div class="category">
-        <nav class="navbar navbar-expand-lg bg-light navbar-light fixed-top">
+
+{% if messages %}
+
+    {% for message in messages %}
+        <div class="alert alert-warning d-flex justify-content-center" role="alert" style="margin-top: 50px;padding: 25px;">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+{% endif %}
+
+<div class="wrapper">
+
+        <nav id="header" class="navbar navbar-expand-lg navbar-dark fixed-top">
           <div class="container">
             <a href="{% url 'blog:index' %}" class="logo navbar-brand ">tour-de-Qazaqstan</a>
             <button
@@ -53,10 +58,6 @@
             >
               <span class="navbar-toggler-icon "></span>
             </button>
-{#            <hr>#}
-{#            <div class="nav_date" style="color: darkred;">It is the {% now "jS \o\f F" %}</div>#}
-{#            <div class="nav_date" style="color: #4ac1f7;margin-left: 20px;">Time is - {% now "G : i : s" %}</div>#}
-
 
             <div class="collapse navbar-collapse justify-content-end" id="navmenu">
               <ul class="navbar-nav ms-auto">
@@ -75,25 +76,29 @@
                 <li class="nav-item">
                   <a href="{% url 'admin:index' %}" class="nav-link">Admin</a>
                 </li>
-                {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <form action="{% url 'blog:logout' %}" method="post">
-                            {% csrf_token %}
-                            <button type="submit" class="nav-link bg-light">Logout</button>
-                        </form>
-                    </li>
-                {% else %}
-                    <li class="nav-item">
-                        <a href="{% url 'blog:login' %}" class="nav-link">Login</a>
-                    </li>
-                {% endif %}
+                <li class="nav-item">
+                   <a class="nav-link" href="{% url 'blog:base_admin' %}" role="button"><i class="fa fa-user fa-fw"></i></a>
+                </li>
+
+{#                {% if user.is_authenticated %}#}
+{#                    <li class="nav-item">#}
+{#                        <form action="{% url 'blog:logout' %}" method="post">#}
+{#                            {% csrf_token %}#}
+{#                            <button type="submit" class="nav-link bg-light">Logout</button>#}
+{#                        </form>#}
+{#                    </li>#}
+{#                {% else %}#}
+{#                    <li class="nav-item">#}
+{#                        <a href="{% url 'blog:login' %}" class="nav-link">Login</a>#}
+{#                    </li>#}
+{#                {% endif %}#}
+
               </ul>
             </div>
           </div>
         </nav>
-    </div>
 
-	<div class="content">
+    <div class="content">
 
         {% block content %}
 
@@ -101,7 +106,7 @@
 
     </div>
 
-	<footer class="footer">
+    <footer class="footer">
 		<div class="container">
 			<div class="footer__row">
 				<div class="footer__body">
@@ -110,12 +115,12 @@
 					</div>
 					<div class="footer__subtitle">Find out what the best destinations in the Qazaqstan.</div>
 					<div class="footer__soc-media">
-						<a href=""><img src="{% static 'blog/img/icons/twitter.png' %}" alt=""></a>
-						<a href=""><img src="{% static 'blog/img/icons/telegram.png' %}" alt=""></a>
-						<a href=""><img src="{% static 'blog/img/icons/instagram.png' %}" alt=""></a>
-						<a href=""><img src="{% static 'blog/img/icons/facebook.png' %}" alt=""></a>
-						<a href=""><img src="{% static 'blog/img/icons/linkedin.png' %}" alt=""></a>
-						<a href=""><img src="{% static 'blog/img/icons/youtube.png' %}" alt=""></a>
+						<a href="https://www.instagram.com/muhamedi21/"><img src="{% static 'blog/img/icons/twitter.png' %}" alt=""></a>
+						<a href="https://www.instagram.com/muhamedi21/"><img src="{% static 'blog/img/icons/telegram.png' %}" alt=""></a>
+						<a href="https://www.instagram.com/muhamedi21/"><img src="{% static 'blog/img/icons/instagram.png' %}" alt=""></a>
+						<a href="https://www.instagram.com/muhamedi21/"><img src="{% static 'blog/img/icons/facebook.png' %}" alt=""></a>
+						<a href="https://www.instagram.com/muhamedi21/"><img src="{% static 'blog/img/icons/linkedin.png' %}" alt=""></a>
+						<a href="https://www.instagram.com/muhamedi21/"><img src="{% static 'blog/img/icons/youtube.png' %}" alt=""></a>
 					</div>
                     {% now "Y" as current_year %}
 					<div class="footer__rights">Copyright &copy;{{ current_year }} TourDeQaz. All rights reserved. </div>
@@ -123,23 +128,63 @@
 				<div class="footer__links">
 					<div class="link-col">
 					<div class="link__title">Tour-de-Qaz</div>
-						<a href="index.html">Home</a>
+						<a href="blog/index.html">Home</a>
 						<a href="#">Tours</a>
-						<a href="visit.html">Visit Qazaqstan</a>
-						<a href="about.html">About Us</a>
-						<a href="#">Book Now</a>
+						<a href="blog/about.html">About Us</a>
                         <a href="{% url 'blog:add_tour' %}">Add Tour</a>
+                        <a href="{% url 'blog:base_admin' %}">Admin</a>
 					</div>
 					<div class="link-col">
 						<div class="link__title">Help</div>
 						<a href="#">Privacy Policy</a>
 						<a href="#">Term & Conditions</a>
                         <a href="{% url 'blog:contact' %}">Contacts</a>
+                        <a href="{% url 'blog:checkout' %}">Checkout</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</footer>
+</div>
+
+
+
+<script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+<script>
+
+  // $(document).on("scroll",function(){
+  //   if($(window).scrollTop() === 0)
+  //     $("nav").removeClass("nav-bg");
+  //   else
+  //     $("nav").attr("class", "nav-bg");
+  // });
+
+  document.addEventListener("DOMContentLoaded", function(){
+  window.addEventListener('scroll', function() {
+      if (window.scrollY > 200) {
+        document.getElementById('header').classList.add('bg-primary');
+        // add padding top to show content behind navbar
+        // navbar_height = document.querySelector('.navbar').offsetHeight;
+        // document.body.style.paddingTop = navbar_height + 'px';
+      } else {
+        document.getElementById('header').classList.remove('bg-primary');
+         // remove padding top from body
+        // document.body.style.paddingTop = '0';
+      } 
+  });
+});
+
+ </script>
+
+
 
 </body>
 </html>
